@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Biblioteca IESB{% endblock %}</title>
+    <style>
+        :root { color-scheme: light; }
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; color: #202124; }
+        nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+        a { color: #174ea6; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+        th { background: #f1f3f4; }
+        form { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+        button { padding: .45rem .75rem; cursor: pointer; }
+        select { max-width: 100%; padding: .4rem; }
+        .msg { padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
+        .msg.success { background: #d4edda; }
+        .msg.error { background: #f8d7da; }
+        .msg.warning { background: #fff3cd; }
+        .atrasado { color: #b00020; font-weight: bold; }
+        @media (max-width: 650px) { body { margin: 1rem auto; } table { font-size: .88rem; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'lista_livros' %}">Livros</a>
+        <a href="{% url 'relatorio_livros' %}">Relatório</a>
+        <a href="/admin/">Admin</a>
+    </nav>
+    <hr>
+    {% for message in messages %}
+        <div class="msg {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+    {% block conteudo %}{% endblock %}
+</body>
+</html>
