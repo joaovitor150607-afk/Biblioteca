@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-local-projeto-biblioteca-iesb"
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["biblioteca-six-pi.vercel.app"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",

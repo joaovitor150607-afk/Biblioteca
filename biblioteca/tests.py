@@ -131,3 +131,9 @@ class RegrasDeNegocioTest(TestCase):
     def test_admin_registrado(self):
         for model in (Autor, Livro, Membro):
             self.assertIn(model, admin.site._registry)
+
+    def test_dominio_vercel_e_permitido(self):
+        response = self.client.get(
+            "/", HTTP_HOST="biblioteca-six-pi.vercel.app"
+        )
+        self.assertEqual(response.status_code, 200)
